@@ -1,0 +1,101 @@
+:root {
+  --color-white: F7F7F7;
+  --color-light-orange: #ffeaa7;
+  --color-orange: #fdcb6e;
+  --color-dark-orange: #e17055;
+  --color-pink: #e17055;
+  --color-point-pink: #ff5380;
+  --color-light-green: #bdf3d5;
+  --color-green: #00cec9;
+  --color-dark-green: #00b894;
+
+  --color-light-gray: #f2f2f2;
+  --color-gray: #b4b4b4;
+  --color-dark-gray: #4a4a4a;
+
+  --button-width-small: 1rem;
+  --button-height-small: 0.5rem;
+  --button-width-regular: 2.5rem;
+  --button-height-regular: 1rem;
+
+  --border-radius: 4px;
+
+  --font-size-small: 16px;
+  --font-size-regular: 20px;
+  --font-size-big: 26px;
+  --font-size-super: 32px;
+
+  --font-weight-bold: 700;
+
+  --transition-animation-duration: 300s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: inherit;
+}
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+p {
+  color: var(--color-dark-gray);
+}
+
+.calender__month {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  padding: 1rem;
+}
+
+.calender__month button {
+  margin: 0 2rem;
+  padding: 0 var(--button-width-small);
+  border-radius: var(--border-radius);
+
+  font-size: var(--font-size-big);
+  font-weight: bold;
+  color: var(--color-gray);
+  background-color: transparent;
+  animation: var(--transition-animation-duration);
+}
+
+.calender__month button:hover {
+  color: var(--color-dark-gray);
+  transform: scale(1.5);
+}
+
+.calender__month p {
+  font-size: var(--font-size-big);
+  font-weight: var(--font-weight-bold);
+}
+
+.calender__month .calender__active-month {
+  margin-right: 16px;
+  font-size: var(--font-size-super);
+  color: var(--color-dark-green);
+}
+
+.calender__days {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 700px;
+  height: 700px;
+  border: 2px solid var(--color-dark-green);
+}
