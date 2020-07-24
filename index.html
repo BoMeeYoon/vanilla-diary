@@ -3,11 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>My Diary</title>
   <link rel="stylesheet" href="diary.css">
   <script type="module" src="index.js" defer></script>
 </head>
 <body>
-  
+  <header>It's the header</header>
+  <main>
+    <section class="calender__container">
+      <div class="calender__box">
+        <div class="calender__month">
+          <button class="calender__prev-month">prev</button>
+          <p class="calender__active-month">JULY</p>
+          <p class="calender__active-year">YEAR</p>
+          <button class="calender__next-month">next</button>
+        </div>
+        <table class="calender__days">
+          <thead class="calender__weeks"></thead>
+          <tbody class="calender__dates"></tbody>
+        </table>
+      </div>
+    </section>
+    <section class="todo__container"></section>
+  </main>
+  <footer>It's the footer</footer>
 </body>
 </html>
