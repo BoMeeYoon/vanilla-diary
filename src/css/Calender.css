@@ -91,6 +91,7 @@ p {
   color: var(--color-dark-green);
 }
 
+/* 
 .calender__days {
   display: flex;
   justify-content: center;
@@ -98,4 +99,4 @@ p {
   width: 700px;
   height: 700px;
   border: 2px solid var(--color-dark-green);
-}
+} */
