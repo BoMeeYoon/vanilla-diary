@@ -1,24 +1,12 @@
 import { event } from "./elementsHook.js";
+import calenderState from "./CalenderStates.js";
 
 const log = console.log;
 const tag = "[Calender.js]";
 export default class Calender {
   constructor() {
-    this.months = [
-      "JANUARY",
-      "FEBRUARY",
-      "MARCH",
-      "APRIL",
-      "MAY",
-      "JUNE",
-      "JULY",
-      "AUGUST",
-      "SEPTEMBER",
-      "OCTOBER",
-      "NOVEMBER",
-      "DECEMBER",
-    ];
-    this.days = ["SUN", "MON", "TUES", "WED", "THURS", "FRI", "SAT"];
+    this.months = calenderState.months;
+    this.days = calenderState.days;
     this.today = new Date();
     this.activeMonth = this.today.getMonth();
     this.activeDate = this.today;
