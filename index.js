@@ -1,6 +1,6 @@
-import Diary from "./src/js/diary.js";
+import Calender from "./src/js/Calender.js";
 
 (function () {
-  const diary = new Diary();
-  diary.init();
+  const calender = new Calender();
+  calender.init();
 })();
