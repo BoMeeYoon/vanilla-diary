@@ -6,4 +6,4 @@
 
 ### 현재 구현 된 기능: 달력(이전 달, 이후 달 출력 && 오늘 날짜 표시 && 특별한 날 선택)
 
-<a href="https://bomeeyoon.github.io/vanilla-diary/">
+https://bomeeyoon.github.io/vanilla-diary/
