@@ -117,7 +117,7 @@ export default class Calender {
         activeDateHtml.push(
           `<td id="${activeYear} -${activeMonth}-${
             prevMonthLastDate + i - currFirstDay
-          } class="prev">${prevMonthLastDate + i - currFirstDay}</td>`
+          }" class="prev">${prevMonthLastDate + i - currFirstDay}</td>`
         );
       } else if (i > activeDays + currFirstDay) {
         activeDateHtml.push(
@@ -127,9 +127,8 @@ export default class Calender {
       } else {
         todayDate === i - currFirstDay && currMonth === activeMonth
           ? activeDateHtml.push(
-              `<td id="${activeYear}-${activeMonth}-${i - currFirstDay}">${
-                i - currFirstDay
-              }</td>`
+              `<td id="${activeYear}-${activeMonth}-${i - currFirstDay}"
+                class="today">${i - currFirstDay}</td>`
             )
           : activeDateHtml.push(
               `<td id="${activeYear}-${activeMonth}-${i - currFirstDay}">${

@@ -90,3 +90,52 @@ p {
   font-size: var(--font-size-super);
   color: var(--color-dark-green);
 }
+
+.calender__days {
+  width: 700px;
+  height: 500px;
+  margin: 2rem auto;
+  border: 3px solid var(--color-dark-gray);
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.calender__days th,
+.calender__days td {
+  width: 100px;
+  border: 2px solid var(--color-gray)
+}
+
+.calender__days th {
+  padding: 1rem 0;
+  border-bottom: 3px solid var(--color-dark-gray);
+  background-color: var(--color-light-green);
+}
+
+.prev {
+  color: var(--color-gray);
+}
+
+.next {
+  color: var(--color-gray);
+}
+
+.today {
+  position: relative;
+  color: white;
+  font-size: var(--font-size-regular);
+  font-weight: var(--font-weight-bold);
+}
+
+.today::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-color: var(--color-point-pink);
+  z-index: -1;
+}
