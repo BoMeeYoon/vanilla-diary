@@ -1,4 +1,4 @@
-import { $, event, toggleClassName, removeClassName } from "./elementsHook.js";
+import { $, event, toggleClassName, removeClassName } from "../Utils/elementsHook.js";
 import calenderState from "./CalenderStates.js";
 
 const log = console.log;
@@ -163,3 +163,4 @@ export default class Calender {
     return weeklyHtml;
   }
 }
+
