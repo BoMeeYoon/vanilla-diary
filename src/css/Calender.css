@@ -8,6 +8,7 @@
   --color-light-green: #bdf3d5;
   --color-green: #00cec9;
   --color-dark-green: #00b894;
+  --color-light-blue: #DDF7FB;
 
   --color-light-gray: #f2f2f2;
   --color-gray: #b4b4b4;
@@ -112,10 +113,13 @@ p {
   background-color: var(--color-light-green);
 }
 
-.prev {
-  color: var(--color-gray);
+.calender__days .currDates:hover {
+  color: var(--color-green);
+  font-weight: var(--font-weight-bold);
+  cursor: pointer;
 }
 
+.prev,
 .next {
   color: var(--color-gray);
 }
@@ -138,4 +142,18 @@ p {
   border-radius: 50%;
   background-color: var(--color-point-pink);
   z-index: -1;
+}
+
+.today:hover {
+  color: var(--color-dark-gray);
+  cursor: pointer;
+}
+
+.today:hover::after {
+  background-color: var(--color-orange);
+}
+
+.date-selected {
+  background-color: var(--color-light-blue);
+  z-index: -2;
 }

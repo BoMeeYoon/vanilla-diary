@@ -1,8 +1,9 @@
-import { event } from "./elementsHook.js";
+import { $, event, toggleClassName, removeClassName } from "./elementsHook.js";
 import calenderState from "./CalenderStates.js";
 
 const log = console.log;
 const tag = "[Calender.js]";
+
 export default class Calender {
   constructor() {
     this.months = calenderState.months;
@@ -19,16 +20,27 @@ export default class Calender {
     this.mountCalender();
   }
   bindElements() {
-    this.yearEl = document.querySelector(".calender__active-year");
-    this.monthEl = document.querySelector(".calender__active-month");
-    this.prevBtn = document.querySelector(".calender__prev-month");
-    this.nextBtn = document.querySelector(".calender__next-month");
-    this.thead = document.querySelector(".calender__weeks");
-    this.tbody = document.querySelector(".calender__dates");
+    this.yearEl = $(".calender__active-year");
+    this.monthEl = $(".calender__active-month");
+    this.prevBtn = $(".calender__prev-month");
+    this.nextBtn = $(".calender__next-month");
+    this.thead = $(".calender__weeks");
+    this.tbody = $(".calender__dates");
   }
   bindEvents() {
     event(this.prevBtn, "click", () => this.activeMonthHandler("PREV"));
     event(this.nextBtn, "click", () => this.activeMonthHandler("NEXT"));
+    event(this.tbody, "click", (event) => this.datesToggleHandler(event));
+  }
+  datesToggleHandler(event) {
+    const { target } = event;
+    const dateSelected = $(".date-selected");
+    if (!target) return;
+    if (dateSelected) removeClassName(dateSelected, "date-selected");
+    if (target.className === "currDates" || target.className === "today") {
+      toggleClassName(event.target, "date-selected");
+      this.dateSelected = event.target.id;
+    }
   }
   activeMonthHandler(type) {
     switch (type) {
@@ -55,7 +67,6 @@ export default class Calender {
     this.mountMonthAndYear();
     this.mountWeek();
     this.mountDate();
-    // this.bindDateElements();
   }
   mountMonthAndYear() {
     this.yearEl.textContent = this.activeDate.getFullYear();
@@ -115,13 +126,15 @@ export default class Calender {
     for (let i = 0; i < 7 * 6; i++) {
       if (i < activeFirstDay) {
         activeDateHtml.push(
-          `<td id="${activeYear} -${activeMonth}-${
+          `<td id="${activeYear}-${activeMonth - 1}-${
             prevMonthLastDate + i - currFirstDay
           }" class="prev">${prevMonthLastDate + i - currFirstDay}</td>`
         );
       } else if (i > activeDays + currFirstDay) {
         activeDateHtml.push(
-          `<td id="${activeYear}-${activeMonth}-${nextMonthDate}" class="next">${nextMonthDate}</td>`
+          `<td id="${activeYear}-${
+            activeMonth + 1
+          }-${nextMonthDate}" class="next">${nextMonthDate}</td>`
         );
         nextMonthDate++;
       } else {
@@ -131,9 +144,9 @@ export default class Calender {
                 class="today">${i - currFirstDay}</td>`
             )
           : activeDateHtml.push(
-              `<td id="${activeYear}-${activeMonth}-${i - currFirstDay}">${
+              `<td id="${activeYear}-${activeMonth}-${
                 i - currFirstDay
-              }</td>`
+              }" class="currDates">${i - currFirstDay}</td>`
             );
       }
     }
