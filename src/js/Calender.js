@@ -59,16 +59,11 @@ export default class Calender {
   }
   mountMonthAndYear() {
     this.yearEl.textContent = this.activeDate.getFullYear();
-    this.monthEl.textContent = this.months[this.activeMonth];
+    this.monthEl.textContent = this.months[this.activeDate.getMonth()];
   }
-  // error the array has all dasy but is mounted just 3 days
   mountWeek() {
-    debugger;
-    log(this.days);
     this.thead.innerHTML = this.days.reduce((html, day) => {
-      log(day);
-      log(html);
-      return (html += `<th id="${day}>${day}</th>`);
+      return (html += `<th id="${day}">${day}</th>`);
     }, "");
   }
   mountDate() {
